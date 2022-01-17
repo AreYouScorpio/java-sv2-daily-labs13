@@ -1,6 +1,6 @@
 package day01;
 
-public class Student {
+public class Student implements Comparable<Student>{
     int ID;
     String name;
 
@@ -15,5 +15,10 @@ public class Student {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return ID-o.ID;
     }
 }

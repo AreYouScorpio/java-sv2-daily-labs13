@@ -7,17 +7,22 @@ import java.util.TreeMap;
 
 public class ClassNoteBook {
     List<Student> students = new ArrayList<>();
-    private Map<Student, List<Integer> > noteBook = new TreeMap<>();
+    private Map<Student, List<Integer>> noteBook = new TreeMap<>();
 
 
+    public void addStudent(Student student) {
+        noteBook.put(student, new ArrayList<>());
+    }
 
-        public void addStudent(Student student){
-        students.add(student);
-    };
+    ;
 
-        public void addMark(int id, int mark){
-            noteBook.put(id,mark );
+    public void addMark(int id, int mark) {
+        for (Map.Entry<Student, List<Integer>> actual : noteBook.entrySet()) {
+            if (actual.getKey().getID() == id) {
+                actual.getValue().add(mark);
+            }
 
 
         }
+    }
 }
