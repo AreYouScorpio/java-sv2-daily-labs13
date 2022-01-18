@@ -10,10 +10,10 @@ public class FileReader {
     public static final String FILENAME = "src/main/resources/result.txt";
 
 
-    public Map<List<String>, List<String>> answers =new TreeMap<>();
-    // List<String> players = new ArrayList<>();
+    public Map<String, List<String>> answers = new TreeMap<>();
+    // public List<String> players = new ArrayList<>();
     // List<String> answers = new ArrayList<>();
-    String correctAnswers;
+    public String correctAnswers;
 
 
     public void readFile(Path p) throws IllegalStateException {
@@ -28,24 +28,18 @@ public class FileReader {
                 } else {
 
                     String s[] = line.split(" ");
-
-
-                    answers.put(new ArrayList<>(Arrays.asList(s[0])), new ArrayList<>(Arrays.asList(s[1])));
+                    if (!answers.containsKey(s[0])) answers.put(s[0], new ArrayList<>());
+                    answers.get(s[0]).add(s[1]);
                     System.out.println(answers);
 
                 }
             }
 
+        } catch (
+                IOException ise) {
+            throw new IllegalStateException("Can't read file!", ise);
         }
-
-    catch(
-    IOException ise)
-
-    {
-        throw new IllegalStateException("Can't read file!", ise);
     }
-}
-
 
 
 }

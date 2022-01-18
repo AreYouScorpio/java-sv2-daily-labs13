@@ -8,11 +8,14 @@ import static day02.FileReader.FILENAME;
 public class FileReaderServices {
 
 
+
     public static void main(String[] args) {
 
 
         FileReader fileReader = new FileReader();
         fileReader.readFile(Path.of(FILENAME));
+
+        System.out.println(fileReader.answers);
 
 
     }
