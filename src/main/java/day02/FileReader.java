@@ -11,6 +11,15 @@ public class FileReader {
 
 
     public Map<String, List<String>> answers = new TreeMap<>();
+
+    public Map<String, List<String>> getAnswers() {
+        return answers;
+    }
+
+    public String getCorrectAnswers() {
+        return correctAnswers;
+    }
+
     // public List<String> players = new ArrayList<>();
     // List<String> answers = new ArrayList<>();
     public String correctAnswers;
