@@ -10,6 +10,10 @@ public class ClassNoteBook {
     private Map<Student, List<Integer>> noteBook = new TreeMap<>();
 
 
+    public Map<Student, List<Integer>> getNoteBook() {
+        return noteBook;
+    }
+
     public void addStudent(Student student) {
         noteBook.put(student, new ArrayList<>());
     }
