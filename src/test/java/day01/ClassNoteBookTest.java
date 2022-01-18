@@ -51,4 +51,20 @@ public class ClassNoteBookTest {
         assertEquals(List.of(s,s3,s2), new ArrayList<Student>(classNoteBook.getNoteBook().keySet()));
 
     }
+
+    @Test
+    void testAddMark(){
+        ClassNoteBook classNoteBook = new ClassNoteBook();
+        Student s = new Student(1, "John");
+        Student s2 = new Student(3, "John");
+        Student s3 = new Student(2, "John");
+
+        classNoteBook.addStudent(s);
+        classNoteBook.addStudent(s2);
+        classNoteBook.addStudent(s3);
+
+        classNoteBook.addMark(2,5);
+        assertEquals(5, classNoteBook.getNoteBook().get(s3).get(0));
+    }
+
 }
