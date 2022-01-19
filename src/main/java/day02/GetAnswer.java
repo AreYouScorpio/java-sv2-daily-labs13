@@ -1,8 +1,6 @@
 package day02;
 
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 
 public class GetAnswer {
@@ -29,7 +27,6 @@ public class GetAnswer {
     public void whoIsTheWinner() {
 
 
-
         char[] correctAnswerArray = fileReader.correctAnswers.toCharArray();
 
         Map<String, Integer> winnerList = new TreeMap<>();
@@ -38,16 +35,16 @@ public class GetAnswer {
 
         for (Map.Entry<String, List<String>> actual : fileReader.answers.entrySet()) {
 
-            int points=0;
+            int points = 0;
 
             for (int j = 1; j < 6; j++) {
 
 
-                if ((actual.getValue().get(j - 1)).charAt(0) == 'X') points+=0;
-                if ((actual.getValue().get(j - 1)).charAt(0) == correctAnswerArray[j - 1])  points+=j;
-                if ((!((actual.getValue().get(j - 1)).charAt(0) == correctAnswerArray[j - 1]))&&(!((actual.getValue().get(j - 1)).charAt(0) == 'X'))) points-=2;
+                if ((actual.getValue().get(j - 1)).charAt(0) == 'X') points += 0;
+                if ((actual.getValue().get(j - 1)).charAt(0) == correctAnswerArray[j - 1]) points += j;
+                if ((!((actual.getValue().get(j - 1)).charAt(0) == correctAnswerArray[j - 1])) && (!((actual.getValue().get(j - 1)).charAt(0) == 'X')))
+                    points -= 2;
                 System.out.println(j + ". kör a ciklusban" + points);
-
 
 
             }
@@ -58,21 +55,28 @@ public class GetAnswer {
             System.out.println(winnerList);
 
 
-            }
+        }
 
-        int max=-11110;
+        int max = -11110;
         for (Map.Entry<String, Integer> actualWinner : winnerList.entrySet()) {
-            if (actualWinner.getValue()>max) {
-                max=actualWinner.getValue();
-                winner=actualWinner.getKey();
+            if (actualWinner.getValue() > max) {
+                max = actualWinner.getValue();
+                winner = actualWinner.getKey();
                 System.out.println(winner);
             }
         }
         System.out.println("winner points: " + max);
-        System.out.println("winner is: "+ winner);
+        System.out.println("winner is: " + winner);
 
+        Set<String> keys = new HashSet<String>();
+        for (Map.Entry<String, Integer> entry : winnerList.entrySet()) {
+            if (Objects.equals(max, entry.getValue())) {
+                keys.add(entry.getKey());
+            }
         }
+        System.out.println("The Winner is: " + keys);
 
 
     }
+}
 
