@@ -74,7 +74,7 @@ public class GetAnswer {
                 keys.add(entry.getKey());
             }
         }
-        System.out.println("The Winner is: " + keys);
+        System.out.println("The winner is / The winners are : " + keys);
 
 
     }
