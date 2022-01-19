@@ -39,16 +39,17 @@ public class GetAnswer {
             for (int j = 1; j < 6; j++) {
 
 
-                    if ((fileReader.answers.get(actual).get(j - 1)).charAt(0) == correctAnswerArray[j - 1])
-
-                    {points++;
-                System.out.println(fileReader.answers.get(actual).get(j-1).charAt(0));
-                    System.out.println(points);}
-                else points-=2;
+                    if ((actual.getValue().get(j - 1)).charAt(0) == 'X') points+=0;
+                if ((actual.getValue().get(j - 1)).charAt(0) == correctAnswerArray[j - 1])  points++;
+                if (!((actual.getValue().get(j - 1)).charAt(0) == correctAnswerArray[j - 1]))  points-=2;
+                System.out.println(j + ". kör a ciklusban" + points);
 
 
 
             }
+            System.out.println(actual.getKey());
+            System.out.println(actual.getValue());
+            System.out.println(points);
         }
 
 
