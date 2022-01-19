@@ -18,6 +18,7 @@ public class FileReaderServices {
         System.out.println(fileReader.answers);
         System.out.println(getAnswer.getAnswer("AB123", 2));
 
+        getAnswer.whoIsTheWinner();
 
     }
 
