@@ -14,10 +14,11 @@ public class teszt {
         Map<Character, Integer> list = new TreeMap<>();
 
         for (int i=0; i<teszt.length();i++) {
-            if(teszt.charAt(i)==chars[i]  && !list.containsKey(chars[i])) {
+            boolean b = teszt.charAt(i) == chars[i];
+            if(b && !list.containsKey(chars[i])) {
                 list.put(chars[i], 1);
                             } else
-                  if(teszt.charAt(i)==chars[i]  && list.containsKey(chars[i])) {
+                  if(b && list.containsKey(chars[i])) {
                 list.put(chars[i], list.get(chars[i])+1);
                             }
 
